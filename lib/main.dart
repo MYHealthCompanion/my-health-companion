@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,12 +36,89 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Container(),
-        ),
+      body: Column(
+        children: [
+          SizedBox(height: 150),
+          SafeArea(
+            child: Center(
+              child: Container(
+                width: 300,
+                height: 250,
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 15.0,
+                    )
+                  ],
+                ),
+                child: Container(
+                  // Login Field Container
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [Colors.grey.shade100, Colors.grey.shade400],
+                      ),
+                      borderRadius: BorderRadius.circular(15)),
+                  child: SafeArea(
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: TextField(
+                            obscureText: false,
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                labelText: 'User Name',
+                                hintText: 'Enter your name'),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: TextField(
+                            obscureText: true,
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                labelText: 'Password',
+                                hintText: 'Enter your password'),
+                          ),
+                        ),
+                        Container(
+                          height: 50,
+                          width: 250,
+                          decoration: BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.circular(12),
+                            boxShadow: [BoxShadow(blurRadius: 2)],
+                          ),
+                          child: Center(
+                            child: Text(
+                              'Login',
+                              style: TextStyle(
+                                  fontSize: 24,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
-      appBar: AppBar(backgroundColor: Colors.cyan,)
+      appBar: AppBar(
+        title: Text(
+          "Login Page",
+          style: TextStyle(
+            fontSize: 26,
+          ),
+        ),
+        backgroundColor: Colors.cyan,
+      ),
     );
   }
 }
