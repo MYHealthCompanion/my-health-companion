@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(backgroundColor: colors.grey,
       body: Column(
         children: [
           SizedBox(height: 150),
