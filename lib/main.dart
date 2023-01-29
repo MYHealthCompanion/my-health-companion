@@ -1,10 +1,14 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_health_companion/login_page.dart';
-import 'package:my_health_companion/signup_page.dart';
-import 'package:my_health_companion/welcome_page.dart';
-void main() {
-  runApp(const MyApp());
+import 'Auth-controller.dart';
+import 'login_page.dart';
+import 'package:firebase_core/firebase_core.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp().then((value) => Get.put(AuthController()));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {

@@ -1,18 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:my_health_companion/signup_page.dart';
 import 'package:my_health_companion/welcome_page.dart';
 
-class LoginPage extends StatefulWidget {
-const LoginPage({Key? key}) : super(key: key);
+class LoginPage extends StatelessWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
-@override
- _LoginPageState createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
 @override
 Widget build(BuildContext context) {
   double w = MediaQuery.of(context).size.width;
@@ -72,6 +66,7 @@ return Scaffold(
                 child: TextField(
                   decoration: InputDecoration(
                       hintText: "Your email id",
+                      prefixIcon: Icon(Icons.email, color: Colors.deepOrangeAccent,),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide: BorderSide(
@@ -106,6 +101,7 @@ return Scaffold(
                 child: TextField(
                   decoration: InputDecoration(
                       hintText: "Your password",
+                      prefixIcon: Icon(Icons.password, color: Colors.deepOrangeAccent,),
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
                           borderSide: BorderSide(
