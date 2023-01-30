@@ -40,13 +40,17 @@ class WelcomePage extends StatelessWidget {
             "WORK IN PROGRESS",
           ), //Container for both BoxDecoration for the button
           SizedBox(
-            height: w * 0.20,
+            height: w * 0.15,
           ),
-          ActButon<LineChart>(
-            w: 0.6,
-            h: 0.08,
-            ButtonText: "Show Example Chart",
-            act: LineChart(),
+          Row(
+            children: [
+              ActButonSquar<LineChart>(
+                w: 0.3 * 1.4,
+                h: 0.15 * 1.4,
+                ButtonText: "Show Chart Example",
+                act: LineChart(),
+              ),
+            ],
           ),
         ],
       ),
