@@ -28,8 +28,8 @@ class WelcomePage extends StatelessWidget {
             height: 20,
           ),
           ActButon<LoginPage>(
-            w: w,
-            h: h,
+            w: 0.5,
+            h: 0.08,
             ButtonText: "Sign Out",
             act: LoginPage(),
           ),
@@ -43,8 +43,8 @@ class WelcomePage extends StatelessWidget {
             height: w * 0.20,
           ),
           ActButon<LineChart>(
-            w: w,
-            h: h,
+            w: 0.6,
+            h: 0.08,
             ButtonText: "Show Example Chart",
             act: LineChart(),
           ),

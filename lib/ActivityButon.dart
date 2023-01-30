@@ -21,8 +21,8 @@ class ActButon<type> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: w * 0.5,
-      height: h * 0.08,
+      width: MediaQuery.of(context).size.width * w,
+      height: MediaQuery.of(context).size.height * h,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           image: DecorationImage(
