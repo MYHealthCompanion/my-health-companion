@@ -2,10 +2,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'login_page.dart';
+import 'charts.dart';
+import 'ActivityButon.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -17,58 +18,40 @@ class WelcomePage extends StatelessWidget {
         children: [
           Container(
             width: w,
-            height: h*0.29,
+            height: h * 0.29,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage(
-                        "img/loginimg.png"
-                    ),
-                    fit: BoxFit.cover
-                )
-            ),
+                    image: AssetImage("img/loginimg.png"), fit: BoxFit.cover)),
+          ), //Container for the cover image
 
-          ),    //Container for the cover image
-
-          SizedBox(height: 20,),
-          Container(
-            width: w*0.5,
-            height: h*0.08,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                image: DecorationImage(
-                    image: AssetImage(
-                        "img/loginbtn.png"
-                    ),
-                    fit: BoxFit.cover
-                )
-            ),
-            child: Center(
-              child: RichText(text: TextSpan(
-                  text: "Sign Out",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-
-
-                  ),
-                  recognizer: TapGestureRecognizer()..onTap=()=>Get.to(()=>LoginPage())
-
-              )),
-            ),
-
+          SizedBox(
+            height: 20,
           ),
-          SizedBox(height: 50,),
-          Text("WORK IN PROGRESS",),//Container for both BoxDecoration for the button
-          SizedBox(height: w*0.20,),
-
-
-
-
+          ActButon<LoginPage>(
+            w: w,
+            h: h,
+            ButtonText: "Sign Out",
+            act: LoginPage(),
+          ),
+          SizedBox(
+            height: 50,
+          ),
+          Text(
+            "WORK IN PROGRESS",
+          ), //Container for both BoxDecoration for the button
+          SizedBox(
+            height: w * 0.20,
+          ),
+          ActButon<LineChart>(
+            w: w,
+            h: h,
+            ButtonText: "Show Example Chart",
+            act: LineChart(),
+          ),
         ],
       ),
     );
-
-
   }
 }
+
+
