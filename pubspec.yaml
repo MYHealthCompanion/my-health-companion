@@ -39,6 +39,7 @@ dependencies:
   get:
   firebase_auth: ^4.2.5
   firebase_core: ^2.4.1
+  syncfusion_flutter_charts: ^20.4.44
 dev_dependencies:
   flutter_test:
     sdk: flutter
