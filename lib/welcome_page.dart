@@ -45,8 +45,8 @@ class WelcomePage extends StatelessWidget {
           Row(
             children: [
               ActButonSquar<LineChart>(
-                w: 0.3 * 1.4,
-                h: 0.15 * 1.4,
+                w: 1 * 1.4,
+                h: 0.5 * 1.4,
                 ButtonText: "Show Chart Example",
                 act: LineChart(),
               ),
