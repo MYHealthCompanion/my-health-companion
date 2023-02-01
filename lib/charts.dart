@@ -33,6 +33,7 @@ class LineChart extends StatelessWidget {
                 ],
                 xValueMapper: (ChartData data, _) => data.x,
                 yValueMapper: (ChartData data, _) => data.y,
+                dataLabelSettings: DataLabelSettings(isVisible: true),
               )
             ],
           ),
