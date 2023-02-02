@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Auth-controller.dart';
+import 'BMIPage.dart';
 import 'charts.dart';
 import 'ActivityButon.dart';
 
@@ -72,6 +73,13 @@ class WelcomePage extends StatelessWidget {
                 ButtonText: "Show Chart Example",
                 act: LineChart(),
               ),
+              SizedBox(width: 65,),
+              ActButonSquar(
+                  w: 0.3 * 1.4,
+                  h: 0.15 * 1.4,
+                  ButtonText: "BMI Calc",
+                  act: BMIPage()
+              )
             ],
           ),
         ],
