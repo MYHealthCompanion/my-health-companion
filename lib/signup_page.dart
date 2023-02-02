@@ -5,7 +5,7 @@ import 'package:my_health_companion/Auth-controller.dart';
 import 'package:my_health_companion/login_page.dart';
 
 class SignUpPage extends StatelessWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+  SignUpPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

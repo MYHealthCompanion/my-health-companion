@@ -22,7 +22,7 @@ class AuthController extends GetxController{
       print("Login page");
       Get.offAll(()=>LoginPage());
     }else{
-      Get.offAll(()=>WelcomePage());
+      Get.offAll(()=>WelcomePage(email:user.email!));
     }
 }
   Future<void> register(String email, password) async {
@@ -47,6 +47,32 @@ class AuthController extends GetxController{
 
       );
     }
+  }
+  Future<void> login(String email, password) async {
+    try{
+      await  auth.signInWithEmailAndPassword(email: email, password: password);
+    }catch(e){
+      Get.snackbar("About Login", "Login message",
+          backgroundColor: Colors.redAccent,
+          snackPosition: SnackPosition.BOTTOM,
+          titleText: Text(
+            "Login failed",
+            style: TextStyle(
+                color: Colors.white
+            ),
+          ),
+          messageText: Text(
+              e.toString(),
+              style: TextStyle(
+                  color: Colors.white
+              )
+          )
+
+      );
+    }
+  }
+  Future<void> logOut() async {
+    await auth.signOut();
   }
 
 }
