@@ -70,7 +70,7 @@ class WelcomePage extends StatelessWidget {
                 ButtonText: "Show Chart Example",
                 act: LineChart(),
               ),
-              SizedBox(width: 62,),
+              SizedBox(width: 61,),
               ActButonSquar(
                   w: 0.3 * 1.4,
                   h: 0.15 * 1.0,
