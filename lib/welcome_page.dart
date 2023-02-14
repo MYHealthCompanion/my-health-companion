@@ -3,10 +3,11 @@ import 'Auth-controller.dart';
 import 'BMIPage.dart';
 import 'charts.dart';
 import 'ActivityButon.dart';
+import 'VitSubPage.dart';
 
 class WelcomePage extends StatelessWidget {
-   String email;
-   WelcomePage({ Key? key, required this.email}) : super(key: key);
+
+   WelcomePage({ Key? key, required String email,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -59,27 +60,34 @@ class WelcomePage extends StatelessWidget {
           SizedBox(
             height: 50,
           ),
-          Text(
-            email,
-          ), //Container for both BoxDecoration for the button
-          SizedBox(
-            height: w * 0.15,
-          ),
+           //Container for both BoxDecoration for the button
+          SizedBox(height: w * 0.15,),
           Row(
             children: [
               ActButonSquar<LineChart>(
                 w: 0.3 * 1.4,
-                h: 0.15 * 1.4,
+                h: 0.15 * 1.0,
                 ButtonText: "Show Chart Example",
                 act: LineChart(),
               ),
-              SizedBox(width: 65,),
+              SizedBox(width: 62,),
               ActButonSquar(
                   w: 0.3 * 1.4,
-                  h: 0.15 * 1.4,
-                  ButtonText: "BMI Calc",
+                  h: 0.15 * 1.0,
+                  ButtonText: "BMI Calc    ",
                   act: BMIPage()
               )
+            ],
+          ),
+          SizedBox(height: 10,),
+          Row(
+            children: [
+              ActButonSquar<VitSubPage>(
+                w: 0.3 * 1.4,
+                h: 0.15 * 1.0,
+                ButtonText: "Vitality Submission",
+                act: VitSubPage(),
+              ),
             ],
           ),
         ],

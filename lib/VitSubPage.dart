@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class BMIPage extends StatefulWidget {
-  const BMIPage({Key? key}) : super(key: key);
+
+class VitSubPage extends StatefulWidget {
+  const VitSubPage({Key? key}) : super(key: key);
 
   @override
-  State<BMIPage> createState() => _BMIPageState();
+  State<VitSubPage> createState() => _VitSubPageState();
+
 }
+TextEditingController VitaminDController = new TextEditingController();
+TextEditingController BloodPressureController = new TextEditingController();
 
-class _BMIPageState extends State<BMIPage> {
-  TextEditingController weightController = new TextEditingController();
-  TextEditingController heightController = new TextEditingController();
-
-   double _result = 0;
+class _VitSubPageState extends State<VitSubPage> {
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
@@ -19,7 +19,7 @@ class _BMIPageState extends State<BMIPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.redAccent,
-        title: Text("BMI Calculator",
+        title: Text("App Tool (Work in progress!)",
           style: TextStyle(
               color: Colors.white
           ),
@@ -30,28 +30,24 @@ class _BMIPageState extends State<BMIPage> {
         child: Column(
           children: <Widget>[
             new TextField(
-              controller: heightController,
+              controller: BloodPressureController,
               keyboardType: TextInputType.number,
               decoration: new InputDecoration(
-                  labelText: 'Height in cm',
-                  icon: new Icon(Icons.height)
+                  labelText: 'Enter As Max/Min',
+                  icon: new Icon(Icons.bloodtype)
               ),
             ),
             SizedBox(height: 20,),
             new TextField(
-              controller: weightController,
+              controller: VitaminDController,
               keyboardType: TextInputType.number,
               decoration: new InputDecoration(
-                  labelText: 'Weight in kg',
-                  icon: new Icon(Icons.line_weight)
+                  labelText: 'Enter Your value',
+                  icon: new Icon(Icons.medication)
               ),
             ),
             SizedBox(height: 15,),
-            GestureDetector(
-              onTap: (){
-                CalcBMI();
-              },
-              child: Container(
+               Container(
                 width: w * 0.5,
                 height: h * 0.08,
                 decoration: BoxDecoration(
@@ -65,7 +61,7 @@ class _BMIPageState extends State<BMIPage> {
                 ),
                 child: Center(
                   child: Text(
-                      "Calculate",
+                      "Submit",
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -74,14 +70,9 @@ class _BMIPageState extends State<BMIPage> {
                   ),
                 ),
               ),
-            ),
+
             SizedBox(height: 20,),
-            Text(
-              _result == null ? "Enter Value" : "${_result.toStringAsFixed(2)}",
-              style: TextStyle(
-                  color: Colors.black
-              ),
-            ),
+            Text("THIS PAGE IS STILL WORK IN PROGRESS")
 
 
           ],
@@ -90,17 +81,7 @@ class _BMIPageState extends State<BMIPage> {
 
       ),
 
+
     );
   }
-  void CalcBMI(){
-    double height = double.parse(heightController.text)/100;
-    double weight = double.parse(weightController.text);
-
-    double result = weight / (height * height);
-    _result = result;
-    setState(() {});
-
-
-  }
-
 }

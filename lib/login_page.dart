@@ -33,7 +33,6 @@ return Scaffold(
               fit: BoxFit.cover
             )
           ),
-
         ),    //Container for the cover image
         Container(
           margin: const EdgeInsets.only(left: 20, right: 20),
@@ -138,11 +137,11 @@ return Scaffold(
               ),
             ],
           ),
-
         ),
         SizedBox(height: 20,),
         GestureDetector(
-          onTap: (){
+          onTap: () async {
+
             AuthController.instance.login(emailController.text.trim(), passwordController.text.trim());
           },
           child: Container(
@@ -164,9 +163,7 @@ return Scaffold(
                     color: Colors.grey[500],
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-
                   ),
-
               )),
 
             ),
@@ -186,9 +183,6 @@ return Scaffold(
           recognizer: TapGestureRecognizer()..onTap=()=>Get.to(()=>SignUpPage())
 
         ))
-
-
-
       ],
      ),
   ),
