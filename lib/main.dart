@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'Auth-controller.dart';
+import 'BMIPage.dart';
 import 'login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 

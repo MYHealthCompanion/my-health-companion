@@ -1,12 +1,18 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:my_health_companion/Auth-controller.dart';
 import 'package:my_health_companion/signup_page.dart';
-import 'package:my_health_companion/welcome_page.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  LoginPage({Key? key}) : super(key: key);
 
+  @override
+  _loginPageState createState() => _loginPageState();
+}
+class _loginPageState extends State<LoginPage>{
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
 @override
 Widget build(BuildContext context) {
   double w = MediaQuery.of(context).size.width;
@@ -27,7 +33,6 @@ return Scaffold(
               fit: BoxFit.cover
             )
           ),
-
         ),    //Container for the cover image
         Container(
           margin: const EdgeInsets.only(left: 20, right: 20),
@@ -64,6 +69,7 @@ return Scaffold(
                   ]
                 ),
                 child: TextField(
+                  controller: emailController,
                   decoration: InputDecoration(
                       hintText: "Your email id",
                       prefixIcon: Icon(Icons.email, color: Colors.deepOrangeAccent,),
@@ -99,6 +105,7 @@ return Scaffold(
                     ]
                 ),
                 child: TextField(
+                  controller: passwordController,
                   decoration: InputDecoration(
                       hintText: "Your password",
                       prefixIcon: Icon(Icons.password, color: Colors.deepOrangeAccent,),
@@ -130,37 +137,38 @@ return Scaffold(
               ),
             ],
           ),
-
         ),
         SizedBox(height: 20,),
-        Container(
-          width: w*0.5,
-          height: h*0.08,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
-              image: DecorationImage(
-                  image: AssetImage(
-                      "img/loginbtn.png"
+        GestureDetector(
+          onTap: () async {
+
+            AuthController.instance.login(emailController.text.trim(), passwordController.text.trim());
+          },
+          child: Container(
+            width: w*0.5,
+            height: h*0.08,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30),
+                image: DecorationImage(
+                    image: AssetImage(
+                        "img/loginbtn.png"
+                    ),
+                    fit: BoxFit.cover
+                )
+            ),
+            child: Center(
+              child: RichText(text: TextSpan(
+                  text: "Sign In",
+                  style: TextStyle(
+                    color: Colors.grey[500],
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
                   ),
-                  fit: BoxFit.cover
-              )
-          ),
-          child: Center(
-            child: RichText(text: TextSpan(
-                text: "Sign In",
-                style: TextStyle(
-                  color: Colors.grey[500],
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+              )),
 
-
-                ),
-                recognizer: TapGestureRecognizer()..onTap=()=>Get.to(()=>WelcomePage())
-
-            )),
+            ),
 
           ),
-
         ),
         SizedBox(height: w*0.15,),
         RichText(text: TextSpan(
@@ -175,9 +183,6 @@ return Scaffold(
           recognizer: TapGestureRecognizer()..onTap=()=>Get.to(()=>SignUpPage())
 
         ))
-
-
-
       ],
      ),
   ),
